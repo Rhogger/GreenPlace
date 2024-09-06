@@ -106,7 +106,8 @@ class SignUpScreen extends StatelessWidget {
                                       'Ao concordar você receberá nossas atualizações por email.',
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 20),
                                   child: SizedBox(
                                     height: 50,
                                     child: ElevatedButton(
