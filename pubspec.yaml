@@ -63,6 +63,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/sign_in_background.png
+    - assets/images/plants/plant_1.png
+    - assets/images/plants/plant_2.png
+    - assets/images/plants/plant_3.png
+    - assets/images/plants/plant_4.png
+    - assets/images/plants/plant_5.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
