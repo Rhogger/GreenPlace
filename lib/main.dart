@@ -35,26 +35,6 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: CustomColors.primary,
           cursorColor: CustomColors.primary,
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: CustomColors.terciary.withOpacity(1),
-              width: 2,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(16),
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: CustomColors.terciary.withOpacity(.6),
-              width: 2,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(16),
-            ),
-          ),
-        ),
         useMaterial3: true,
       ),
       home: const SignInScreen(),

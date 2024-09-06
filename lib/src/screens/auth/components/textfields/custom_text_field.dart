@@ -34,6 +34,27 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         obscureText: visibility,
         decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: CustomColors.terciary.withOpacity(.6),
+              width: 2,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: CustomColors.terciary.withOpacity(.6),
+              width: 2,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: CustomColors.terciary,
+              width: 2,
+            ),
+          ),
           labelText: widget.label,
           labelStyle: GoogleFonts.oswald(
             color: CustomColors.terciary.withOpacity(1),
