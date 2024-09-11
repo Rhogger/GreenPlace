@@ -63,11 +63,34 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/sign_in_background.png
-    - assets/images/plants/plant_1.png
-    - assets/images/plants/plant_2.png
-    - assets/images/plants/plant_3.png
-    - assets/images/plants/plant_4.png
-    - assets/images/plants/plant_5.png
+    - assets/images/plants/aloe_vera.png
+    - assets/images/plants/bamboo.png
+    - assets/images/plants/basil.png
+    - assets/images/plants/begonia.png
+    - assets/images/plants/boston_fern.png
+    - assets/images/plants/bougainvillea.png
+    - assets/images/plants/cactus.png
+    - assets/images/plants/celosia.png
+    - assets/images/plants/chili_pepper.png
+    - assets/images/plants/cyclamen.png
+    - assets/images/plants/fiddle_leaf_fig.png
+    - assets/images/plants/ginger.png
+    - assets/images/plants/kalanchoe.png
+    - assets/images/plants/lemon_balm.png
+    - assets/images/plants/maranta.png
+    - assets/images/plants/mint.png
+    - assets/images/plants/orchid.png
+    - assets/images/plants/petunia.png
+    - assets/images/plants/pothos.png
+    - assets/images/plants/philodendron.png
+    - assets/images/plants/rose.png
+    - assets/images/plants/snake_plant.png
+    - assets/images/plants/spider_plant.png
+    - assets/images/plants/sunflower.png
+    - assets/images/plants/tomato.png
+    - assets/images/plants/zebra_plant.png
+    - assets/images/plants/lavender.png
+    - assets/images/plants/poinsettia.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
