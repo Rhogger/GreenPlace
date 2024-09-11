@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kitanda/src/config/theme.dart';
-import 'package:kitanda/src/screens/home/home_tab.dart';
-import 'package:kitanda/src/screens/irrigation/irrigation_tab.dart';
-import 'package:kitanda/src/screens/plants/plants_tab.dart';
+
+import '../../../src/config/theme.dart';
+import '../../screens/irrigation/irrigation_tab.dart';
+import '../../screens/plants/plants_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -22,7 +22,6 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          const HomeTab(),
           const IrrigationTab(),
           PlantsTab(),
         ],
@@ -39,7 +38,6 @@ class _BaseScreenState extends State<BaseScreen> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(.6),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.sunny), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.water_drop), label: 'Regas'),
           BottomNavigationBarItem(icon: Icon(Icons.spa), label: 'Plantas'),
         ],
