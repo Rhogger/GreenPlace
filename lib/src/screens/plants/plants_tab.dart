@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kitanda/src/config/app_data.dart';
 import 'package:kitanda/src/config/theme.dart';
-import 'package:kitanda/src/screens/plants/components/plant_tile.dart';
+import 'package:kitanda/src/components/tiles/plant_tile.dart';
+
+import '../../components/delegates/custom_search_delegate.dart';
+import 'components/all_plants_category_expantion_panel.dart';
+import 'components/plant_category_list.dart';
 
 class PlantsTab extends StatelessWidget {
-  PlantsTab({super.key});
-
-  final List<String> plants = [
-    "assets/images/plants/plant_1.png",
-    "assets/images/plants/plant_2.png",
-    "assets/images/plants/plant_3.png",
-    "assets/images/plants/plant_4.png",
-    "assets/images/plants/plant_5.png",
-  ];
+  const PlantsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,81 +25,77 @@ class PlantsTab extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+            },
+            color: CustomColors.secondary,
+            icon: const Icon(
+              Icons.search,
+              size: 32,
+            ),
+          ),
+        ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
-        padding: const EdgeInsets.only(
-          left: 24,
-          right: 24,
-          top: 18,
-          bottom: 6,
-        ),
-        child: Column(
-          children: [
-            TextFormField(
-              cursorColor: Colors.white.withOpacity(.7),
-              style: GoogleFonts.oswald(
-                color: Colors.white,
-              ),
-              decoration: InputDecoration(
-                fillColor: CustomColors.secondary,
-                filled: true,
-                hintText: 'Pesquisar...',
-                hintStyle: GoogleFonts.oswald(
-                  color: Colors.white.withOpacity(.7),
-                  fontSize: 16,
-                ),
-                isDense: true,
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.white,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(100),
-                  borderSide: const BorderSide(
-                    width: 0,
-                    style: BorderStyle.none,
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.symmetric(
-                vertical: 48,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Pesquisa Recentes'.toUpperCase(),
-                    style: GoogleFonts.oswald(
-                      color: CustomColors.secondary,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 24, bottom: 48),
-                    height: 240,
-                    child: ListView.separated(
-                      itemBuilder: (_, index) => PlantTile(
-                        imageUrl: plants[index],
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.topLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.only(
+                        top: 48,
+                        right: 30,
+                        left: 30,
                       ),
-                      separatorBuilder: (_, index) => const SizedBox(
-                        height: 40,
-                        width: 40,
+                      child: Text(
+                        'Pesquisa Recentes'.toUpperCase(),
+                        style: GoogleFonts.oswald(
+                          color: CustomColors.secondary,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                      itemCount: 4,
-                      scrollDirection: Axis.horizontal,
                     ),
-                  ),
-                ],
+                    Container(
+                      height: 240,
+                      color: Colors.white,
+                      child: ListView.separated(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 24,
+                          horizontal: 30,
+                        ),
+                        itemBuilder: (_, index) => PlantTile(
+                          imageUrl: lastSearchList[index].imageUrl,
+                          tileBackground: CustomColors.terciary.withOpacity(.3),
+                        ),
+                        separatorBuilder: (_, index) => const SizedBox(
+                          height: 40,
+                          width: 40,
+                        ),
+                        itemCount: lastSearchList.length,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                    ),
+                    const AllPlantsCategoryExpansionPanel(),
+                    const PlantCategoryList(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
