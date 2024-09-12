@@ -3,12 +3,19 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/theme.dart';
-import '../../../screens/plants/components/plant_tile.dart';
 import '../../../config/app_data.dart';
+import 'watered_plant_tile.dart';
 
-class DailyIrrigationDetailAppbar extends StatelessWidget {
+class DailyIrrigationDetailAppbar extends StatefulWidget {
   const DailyIrrigationDetailAppbar({super.key});
 
+  @override
+  State<DailyIrrigationDetailAppbar> createState() =>
+      _DailyIrrigationDetailAppbarState();
+}
+
+class _DailyIrrigationDetailAppbarState
+    extends State<DailyIrrigationDetailAppbar> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -57,15 +64,15 @@ class DailyIrrigationDetailAppbar extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
                     ),
-                    itemBuilder: (_, index) => PlantTile(
-                      imageUrl: allPlantsList[index].imageUrl,
+                    itemBuilder: (_, index) => WateredPlantTile(
+                      imageUrl: myWateredPlantsList[index].imageUrl,
                       tileBackground: Colors.white54,
                     ),
                     separatorBuilder: (_, index) => const SizedBox(
                       height: 36,
                       width: 36,
                     ),
-                    itemCount: allPlantsList.length,
+                    itemCount: myWateredPlantsList.length,
                     scrollDirection: Axis.horizontal,
                   ),
                 ),

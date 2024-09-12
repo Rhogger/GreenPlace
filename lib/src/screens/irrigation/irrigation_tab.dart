@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/theme.dart';
 import '../../screens/irrigation/components/daily_irrigation_detail_appbar.dart';
-import '../../screens/plants/components/plant_tile.dart';
+import '../../components/tiles/plant_tile.dart';
 import '../../config/app_data.dart';
 
 class IrrigationTab extends StatelessWidget {
@@ -11,8 +11,6 @@ class IrrigationTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
