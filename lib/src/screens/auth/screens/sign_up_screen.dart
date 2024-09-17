@@ -4,6 +4,8 @@ import 'package:kitanda/src/screens/auth/components/checkboxs/custom_checkbox_li
 import 'package:kitanda/src/screens/auth/components/textfields/custom_text_field.dart';
 import 'package:kitanda/src/config/theme.dart';
 
+import '../../../components/widgets/buttons/back_button_widget.dart';
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -130,25 +132,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Positioned(
-                  top: 6,
-                  left: 6,
-                  child: SafeArea(
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back_rounded),
-                      focusColor: CustomColors.terciary.withOpacity(.5),
-                      color: CustomColors.secondary,
-                      style: ButtonStyle(
-                          iconColor: WidgetStateProperty.all(
-                            Colors.white,
-                          ),
-                          shape: WidgetStateProperty.all(const CircleBorder())),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ),
-                ),
+                const BackButtonWidget(),
               ],
             ),
           ),
