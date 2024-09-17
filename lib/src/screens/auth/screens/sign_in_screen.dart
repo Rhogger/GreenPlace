@@ -1,15 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/components/functions/navigate.dart';
 
+import 'sign_up_screen.dart';
+import '../components/textfields/custom_text_field.dart';
+import '../../bases/base_screen.dart';
+import '../../../components/functions/navigate.dart';
 import '../../../components/styles/buttons.dart';
 import '../../../components/widgets/texts/button_text_widget.dart';
 import '../../../components/widgets/texts/simple_text_widget.dart';
 import '../../../components/widgets/texts/title_widget.dart';
-import 'sign_up_screen.dart';
-import '../components/textfields/custom_text_field.dart';
-import '../../bases/base_screen.dart';
 import '../../../config/theme.dart';
 
 class SignInScreen extends StatelessWidget {
