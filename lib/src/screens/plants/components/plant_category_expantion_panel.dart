@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/config/app_data.dart';
 
-import '../../../components/tiles/plant_tile.dart';
+import '../../../components/widgets/texts/subtitle_widget.dart';
+import '../../../components/widgets/tiles/plant_tile.dart';
 import '../../../config/theme.dart';
 import '../../../models/plant.dart';
 import '../../../enums/categories.dart';
 
 class PlantCategoryExpansionPanel extends StatefulWidget {
-  final Category category;
-  final Color backgroundColor;
-
   const PlantCategoryExpansionPanel({
     super.key,
     required this.category,
     required this.backgroundColor,
+    required this.filteredPlants,
   });
+
+  final Category category;
+  final Color backgroundColor;
+  final List<PlantModel> filteredPlants;
 
   @override
   State<PlantCategoryExpansionPanel> createState() =>
@@ -26,17 +27,16 @@ class _PlantCategoryExpansionPanelState
     extends State<PlantCategoryExpansionPanel> {
   @override
   Widget build(BuildContext context) {
-    List<PlantModel> filteredPlants = allPlantsList
-        .where((plant) => plant.categories.contains(widget.category))
-        .toList();
+    final filteredPlants = widget.filteredPlants;
+    final Color color = widget.backgroundColor == CustomColors.secondary
+        ? Colors.white
+        : CustomColors.secondary;
 
     return ExpansionTile(
       title: ListTile(
-        title: Text(widget.category.readableName.toUpperCase()),
-        titleTextStyle: GoogleFonts.oswald(
-          color: Colors.white,
-          fontSize: 22,
-          fontWeight: FontWeight.w500,
+        title: SubTitleWidget(
+          text: widget.category.readableName,
+          color: color,
         ),
         contentPadding: EdgeInsets.zero,
       ),
@@ -46,18 +46,10 @@ class _PlantCategoryExpansionPanelState
       enableFeedback: true,
       backgroundColor: widget.backgroundColor,
       collapsedBackgroundColor: widget.backgroundColor,
-      iconColor: widget.backgroundColor == CustomColors.secondary
-          ? Colors.white
-          : CustomColors.secondary,
-      collapsedIconColor: widget.backgroundColor == CustomColors.secondary
-          ? Colors.white
-          : CustomColors.secondary,
-      textColor: widget.backgroundColor == CustomColors.secondary
-          ? Colors.white
-          : CustomColors.secondary,
-      collapsedTextColor: widget.backgroundColor == CustomColors.secondary
-          ? Colors.white
-          : CustomColors.secondary,
+      iconColor: color,
+      collapsedIconColor: color,
+      textColor: color,
+      collapsedTextColor: color,
       children: [
         SizedBox(
           height: 240,
@@ -69,13 +61,14 @@ class _PlantCategoryExpansionPanelState
               left: 30,
             ),
             itemBuilder: (_, index) => PlantTile(
-              imageUrl: filteredPlants[index].imageUrl,
+              plant: filteredPlants[index],
               tileBackground: CustomColors.terciary.withOpacity(.3),
             ),
             separatorBuilder: (_, index) => const SizedBox(
               height: 40,
               width: 40,
             ),
+            physics: const BouncingScrollPhysics(),
             itemCount: filteredPlants.length,
             scrollDirection: Axis.horizontal,
           ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/config/app_data.dart';
-import 'package:kitanda/src/config/theme.dart';
-import 'package:kitanda/src/components/tiles/plant_tile.dart';
 
-import '../../components/delegates/custom_search_delegate.dart';
-import 'components/all_plants_category_expantion_panel.dart';
 import 'components/plant_category_list.dart';
+import '../../components/widgets/texts/subtitle_widget.dart';
+import '../../components/widgets/texts/title_widget.dart';
+import '../../components/delegates/custom_search_delegate.dart';
+import '../../components/widgets/tiles/plant_tile.dart';
+import '../../config/app_data.dart';
+import '../../config/theme.dart';
 
 class PlantsTab extends StatelessWidget {
   const PlantsTab({super.key});
@@ -17,22 +17,16 @@ class PlantsTab extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text(
-          'Plantas'.toUpperCase(),
-          style: GoogleFonts.oswald(
-            color: CustomColors.secondary,
-            fontSize: 28,
-            fontWeight: FontWeight.w500,
-          ),
+        title: TitleWidget(
+          text: 'Plantas',
+          color: CustomColors.secondary,
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: CustomSearchDelegate(),
-              );
-            },
+            onPressed: () => showSearch(
+              context: context,
+              delegate: CustomSearchDelegate(),
+            ),
             color: CustomColors.secondary,
             icon: const Icon(
               Icons.search,
@@ -60,13 +54,9 @@ class PlantsTab extends StatelessWidget {
                         right: 30,
                         left: 30,
                       ),
-                      child: Text(
-                        'Pesquisa Recentes'.toUpperCase(),
-                        style: GoogleFonts.oswald(
-                          color: CustomColors.secondary,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: SubTitleWidget(
+                        text: 'Pesquisa Recentes',
+                        color: CustomColors.secondary,
                       ),
                     ),
                     Container(
@@ -78,18 +68,18 @@ class PlantsTab extends StatelessWidget {
                           horizontal: 30,
                         ),
                         itemBuilder: (_, index) => PlantTile(
-                          imageUrl: lastSearchList[index].imageUrl,
+                          plant: lastSearchList[index],
                           tileBackground: CustomColors.terciary.withOpacity(.3),
                         ),
                         separatorBuilder: (_, index) => const SizedBox(
                           height: 40,
                           width: 40,
                         ),
+                        physics: const BouncingScrollPhysics(),
                         itemCount: lastSearchList.length,
                         scrollDirection: Axis.horizontal,
                       ),
                     ),
-                    const AllPlantsCategoryExpansionPanel(),
                     const PlantCategoryList(),
                   ],
                 ),
