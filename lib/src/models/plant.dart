@@ -1,6 +1,6 @@
-import 'package:kitanda/src/enums/categories.dart';
-import 'package:kitanda/src/enums/sunlight.dart';
-import 'package:kitanda/src/enums/umidity.dart';
+import '../enums/categories.dart';
+import '../enums/sunlight.dart';
+import '../enums/umidity.dart';
 
 class PlantModel {
   String name;

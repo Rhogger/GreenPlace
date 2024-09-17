@@ -7,8 +7,8 @@ class SubTitleWidget extends StatelessWidget {
   const SubTitleWidget({
     super.key,
     required this.text,
-    this.fontSize = 18,
-    this.fontWeight = FontWeight.w400,
+    this.fontSize = 22,
+    this.fontWeight = FontWeight.w500,
     this.color,
   });
 
@@ -20,7 +20,7 @@ class SubTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      text.toUpperCase(),
       style: GoogleFonts.oswald(
         color: color ?? CustomColors.terciary.withOpacity(.8),
         fontSize: fontSize,

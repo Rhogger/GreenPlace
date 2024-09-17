@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../functions/navigate.dart';
 import '../../../config/theme.dart';
 
 class BackButtonWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class BackButtonWidget extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            navigatePop(context);
           },
         ),
       ),
