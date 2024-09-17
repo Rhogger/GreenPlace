@@ -10,12 +10,14 @@ class SubTitleWidget extends StatelessWidget {
     this.fontSize = 22,
     this.fontWeight = FontWeight.w500,
     this.color,
+    this.textAlign,
   });
 
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
   final Color? color;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class SubTitleWidget extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
       ),
+      textAlign: textAlign ?? TextAlign.start,
     );
   }
 }
