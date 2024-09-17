@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../config/theme.dart';
 
-class ButtonStyles {
+class ButtonProps {
+/* -------------------- Styles -------------------- */
   static ButtonStyle? outlinedRoundedElevated(
           {double? borderRadius, Color? color}) =>
       ElevatedButton.styleFrom(

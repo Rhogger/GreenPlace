@@ -6,7 +6,7 @@ class TitleWidget extends StatelessWidget {
     super.key,
     required this.text,
     this.fontSize = 28,
-    this.fontWeight = FontWeight.w500,
+    this.fontWeight = FontWeight.w700,
     this.color = Colors.white,
   });
 

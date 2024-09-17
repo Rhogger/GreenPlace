@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/config/theme.dart';
+
+import '../../../../components/styles/borders.dart';
+import '../../../../config/theme.dart';
 
 class CustomTextField extends StatefulWidget {
+  const CustomTextField({
+    super.key,
+    required this.label,
+    required this.icon,
+    this.isPassword = false,
+    this.color,
+  });
+
   final IconData icon;
   final String label;
   final bool isPassword;
-
-  const CustomTextField(
-      {super.key,
-      required this.label,
-      required this.icon,
-      this.isPassword = false});
+  final Color? color;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -34,42 +39,24 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         obscureText: visibility,
         decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: CustomColors.terciary.withOpacity(.6),
-              width: 2,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: CustomColors.terciary.withOpacity(.6),
-              width: 2,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: CustomColors.terciary,
-              width: 2,
-            ),
-          ),
+          border: BorderProps.outlined(),
+          enabledBorder: BorderProps.outlined(),
+          focusedBorder: BorderProps.outlined(),
           labelText: widget.label,
           labelStyle: GoogleFonts.oswald(
             color: CustomColors.terciary.withOpacity(1),
           ),
-          focusColor: CustomColors.terciary.withOpacity(.9),
+          focusColor: widget.color ?? CustomColors.terciary.withOpacity(.9),
           isDense: true,
           prefixIcon: Icon(
             widget.icon,
-            color: CustomColors.terciary.withOpacity(.9),
+            color: widget.color ?? CustomColors.terciary.withOpacity(.9),
           ),
           suffixIcon: widget.isPassword
               ? IconButton(
                   icon: Icon(
                       visibility ? Icons.visibility : Icons.visibility_off),
-                  color: CustomColors.terciary.withOpacity(.9),
+                  color: widget.color ?? CustomColors.terciary.withOpacity(.9),
                   onPressed: () {
                     setState(
                       () {

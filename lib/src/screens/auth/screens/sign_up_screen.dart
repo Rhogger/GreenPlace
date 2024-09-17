@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/screens/auth/components/checkboxs/custom_checkbox_list_tile.dart';
-import 'package:kitanda/src/screens/auth/components/textfields/custom_text_field.dart';
-import 'package:kitanda/src/config/theme.dart';
 
+import '../components/checkboxs/custom_checkbox_list_tile.dart';
+import '../components/textfields/custom_text_field.dart';
 import '../../../components/widgets/buttons/back_button_widget.dart';
+import '../../../components/widgets/texts/simple_text_widget.dart';
+import '../../../components/widgets/texts/title_widget.dart';
+import '../../../config/theme.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -32,26 +34,18 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "Criar uma conta",
-                            style: GoogleFonts.oswald(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                          TitleWidget(
+                            text: "Criar uma conta",
+                            fontSize: 32,
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.only(bottom: 20),
-                          ),
-                          Text(
-                            "plante uma árvore, traga o verde da vida.",
-                            style: GoogleFonts.oswald(
-                              fontSize: 16,
-                              color: Colors.white,
+                            child: SimpleTextWidget(
+                              text: "plante uma árvore, traga o verde da vida.",
                             ),
                           ),
                         ],
@@ -63,7 +57,10 @@ class SignUpScreen extends StatelessWidget {
                             ScrollController scrollController) {
                           return Container(
                             padding: const EdgeInsets.only(
-                                right: 32, left: 32, top: 10),
+                              right: 32,
+                              left: 32,
+                              top: 10,
+                            ),
                             decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.vertical(

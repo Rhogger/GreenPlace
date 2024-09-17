@@ -107,7 +107,7 @@ class SignInScreen extends StatelessWidget {
                             navigatePushReplacement(
                                 context, const BaseScreen());
                           },
-                          style: ButtonStyles.filledRoundedElevated(),
+                          style: ButtonProps.filledRoundedElevated(),
                           child: const ButtonTextWidget(
                             text: "Entrar",
                           ),
@@ -159,7 +159,7 @@ class SignInScreen extends StatelessWidget {
                           onPressed: () {
                             navigatePush(context, const SignUpScreen());
                           },
-                          style: ButtonStyles.outlinedRoundedElevated(),
+                          style: ButtonProps.outlinedRoundedElevated(),
                           child: ButtonTextWidget(
                             text: "Criar conta",
                             color: CustomColors.primary,

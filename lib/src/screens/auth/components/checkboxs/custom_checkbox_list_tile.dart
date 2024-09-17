@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/config/theme.dart';
+
+import '../../../../components/widgets/texts/simple_text_widget.dart';
+import '../../../../components/widgets/texts/subtitle_widget.dart';
+import '../../../../config/theme.dart';
 
 class CustomCheckboxListTile extends StatefulWidget {
   final String title;
@@ -24,12 +26,9 @@ class _CustomCheckboxListTileState extends State<CustomCheckboxListTile> {
   Widget build(BuildContext context) {
     return Center(
       child: CheckboxListTile(
-        title: Text(
-          widget.title,
-          style: GoogleFonts.oswald(
-            fontSize: 16,
-            color: CustomColors.terciary.withOpacity(.9),
-          ),
+        title: SimpleTextWidget(
+          text: widget.title,
+          color: CustomColors.terciary.withOpacity(.9),
         ),
         contentPadding: EdgeInsets.zero,
         activeColor: CustomColors.primary.withOpacity(.4),
@@ -37,12 +36,10 @@ class _CustomCheckboxListTileState extends State<CustomCheckboxListTile> {
         dense: true,
         controlAffinity: ListTileControlAffinity.leading,
         subtitle: widget.subtitle.isNotEmpty
-            ? Text(
-                widget.subtitle,
-                style: GoogleFonts.oswald(
-                  fontSize: 12,
-                  color: CustomColors.terciary.withOpacity(.7),
-                ),
+            ? SubTitleWidget(
+                text: widget.subtitle,
+                fontSize: 12,
+                color: CustomColors.terciary.withOpacity(.7),
               )
             : null,
         side: BorderSide(
