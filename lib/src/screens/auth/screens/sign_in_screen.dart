@@ -1,10 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kitanda/src/screens/auth/components/textfields/custom_text_field.dart';
-import 'package:kitanda/src/config/theme.dart';
-import 'package:kitanda/src/screens/bases/base_screen.dart';
-import 'package:kitanda/src/screens/auth/screens/sign_up_screen.dart';
+import 'package:kitanda/src/components/functions/navigate.dart';
+
+import '../../../components/styles/buttons.dart';
+import '../../../components/widgets/texts/button_text_widget.dart';
+import '../../../components/widgets/texts/simple_text_widget.dart';
+import '../../../components/widgets/texts/title_widget.dart';
+import 'sign_up_screen.dart';
+import '../components/textfields/custom_text_field.dart';
+import '../../bases/base_screen.dart';
+import '../../../config/theme.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -32,24 +38,18 @@ class SignInScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Greenplace",
-                        style: GoogleFonts.oswald(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                      const TitleWidget(
+                        text: "Greenplace",
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "seu jardim de ",
-                            textAlign: TextAlign.left,
-                            style: GoogleFonts.oswald(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
+                          const SimpleTextWidget(
+                            text: "seu jardim de ",
+                            color: Colors.white,
+                            fontSize: 16,
                           ),
                           DefaultTextStyle(
                             style: GoogleFonts.oswald(
@@ -104,32 +104,22 @@ class SignInScreen extends StatelessWidget {
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                builder: (c) {
-                                  return const BaseScreen();
-                                },
-                              ),
-                            );
+                            navigatePushReplacement(
+                                context, const BaseScreen());
                           },
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                          ),
-                          child: Text(
-                            "Entrar",
-                            style: GoogleFonts.oswald(color: Colors.white),
+                          style: ButtonStyles.filledRoundedElevated(),
+                          child: const ButtonTextWidget(
+                            text: "Entrar",
                           ),
                         ),
                       ),
                       TextButton(
                         onPressed: () {},
-                        child: Text(
-                          "Esqueceu a senha?",
-                          style: GoogleFonts.oswald(
-                              color: CustomColors.terciary.withOpacity(1),
-                              fontWeight: FontWeight.w500),
+                        child: ButtonTextWidget(
+                          text: "Esqueceu a senha?",
+                          color: CustomColors.terciary.withOpacity(1),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       Padding(
@@ -147,11 +137,11 @@ class SignInScreen extends StatelessWidget {
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
-                                "ou",
-                                style: GoogleFonts.oswald(
-                                    color: CustomColors.terciary.withOpacity(1),
-                                    fontWeight: FontWeight.w500),
+                              child: SimpleTextWidget(
+                                text: "ou",
+                                color: CustomColors.terciary.withOpacity(1),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
                               ),
                             ),
                             Expanded(
@@ -167,32 +157,12 @@ class SignInScreen extends StatelessWidget {
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (c) {
-                                  return const SignUpScreen();
-                                },
-                              ),
-                            );
+                            navigatePush(context, const SignUpScreen());
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              side: BorderSide(
-                                strokeAlign: BorderSide.strokeAlignOutside,
-                                color: CustomColors.primary,
-                                width: 2,
-                              ),
-                            ),
-                            // backgroundColor: Colors.white
-                          ),
-                          child: Text(
-                            "Criar conta",
-                            style: GoogleFonts.oswald(
-                              fontSize: 18,
-                              color: CustomColors.primary,
-                            ),
+                          style: ButtonStyles.outlinedRoundedElevated(),
+                          child: ButtonTextWidget(
+                            text: "Criar conta",
+                            color: CustomColors.primary,
                           ),
                         ),
                       ),
