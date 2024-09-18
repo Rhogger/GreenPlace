@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../config/theme.dart';
-import '../../screens/irrigation/components/daily_irrigation_detail_appbar.dart';
-import '../../components/tiles/plant_tile.dart';
+import '../create_plant/create_plant_screen.dart';
+import '../../config/padding.dart';
 import '../../config/app_data.dart';
+import '../../config/theme.dart';
+import '../../components/functions/navigate.dart';
+import '../../components/widgets/texts/medium_text_widget copy.dart';
+import '../../components/widgets/buttons/add_button_widget.dart';
+import '../../components/widgets/texts/subtitle_widget.dart';
+import '../../components/widgets/tiles/plant_tile.dart';
+import '../../screens/irrigation/components/daily_irrigation_detail_appbar.dart';
 
 class IrrigationTab extends StatelessWidget {
   const IrrigationTab({super.key});
@@ -17,49 +22,31 @@ class IrrigationTab extends StatelessWidget {
         slivers: <Widget>[
           const DailyIrrigationDetailAppbar(),
           SliverPadding(
-            padding: const EdgeInsets.only(
-              top: 30,
-              left: 30,
-              right: 30,
-            ),
+            padding: paddingLessBottom,
             sliver: SliverToBoxAdapter(
               child: ListTile(
-                trailing: IconButton(
+                trailing: AddButtonWidget(
+                  backgroundColor: CustomColors.secondary,
+                  iconColor: Colors.white,
                   iconSize: 36,
-                  icon: const Icon(Icons.add_rounded),
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(
-                      CustomColors.secondary,
-                    ),
-                    iconColor: const WidgetStatePropertyAll(
-                      Colors.white,
-                    ),
-                    minimumSize: const WidgetStatePropertyAll(
-                      Size(20, 20),
-                    ),
+                  onPressed: () => navigatePush(
+                    context,
+                    const CreatePlantScreen(),
                   ),
                 ),
-                title: Text(
-                  'Minhas plantas'.toUpperCase(),
-                  style: GoogleFonts.oswald(
-                    color: CustomColors.secondary,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                  ),
+                title: SubTitleWidget(
+                  text: 'Minhas plantas',
+                  color: CustomColors.secondary,
+                  fontSize: 26,
                 ),
-                subtitle: Text(
-                  'Você possui ${myPlantsList.length} plantas',
-                  style: GoogleFonts.oswald(
-                    color: CustomColors.terciary.withOpacity(.8),
-                    fontSize: 18,
-                  ),
+                subtitle: MediumTextWidget(
+                  text: 'Você possui ${myPlantsList.length} plantas',
                 ),
               ),
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.all(30),
+            padding: paddingAll,
             sliver: SliverGrid.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: 20,
@@ -67,7 +54,7 @@ class IrrigationTab extends StatelessWidget {
                 crossAxisCount: 2,
               ),
               itemBuilder: (context, index) => PlantTile(
-                imageUrl: myPlantsList[index].imageUrl,
+                plant: myPlantsList[index],
                 tileBackground: CustomColors.secondary.withOpacity(.5),
               ),
               itemCount: myPlantsList.length,

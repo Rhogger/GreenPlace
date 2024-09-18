@@ -20,17 +20,14 @@ class _WateredPlantTileState extends State<WateredPlantTile> {
       children: [
         Container(
           width: 120,
+          height: double.infinity,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: widget.tileBackground,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(widget.imageUrl),
-              ),
-            ),
+          child: Image(
+            image: AssetImage(widget.imageUrl),
           ),
         ),
         const Positioned(
