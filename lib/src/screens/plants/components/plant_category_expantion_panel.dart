@@ -32,48 +32,51 @@ class _PlantCategoryExpansionPanelState
         ? Colors.white
         : CustomColors.secondary;
 
-    return ExpansionTile(
-      title: ListTile(
-        title: SubTitleWidget(
-          text: widget.category.readableName,
-          color: color,
-        ),
-        contentPadding: EdgeInsets.zero,
-      ),
-      tilePadding: const EdgeInsets.symmetric(
-        horizontal: 30,
-      ),
-      enableFeedback: true,
-      backgroundColor: widget.backgroundColor,
-      collapsedBackgroundColor: widget.backgroundColor,
-      iconColor: color,
-      collapsedIconColor: color,
-      textColor: color,
-      collapsedTextColor: color,
-      children: [
-        SizedBox(
-          height: 240,
-          child: ListView.separated(
-            padding: const EdgeInsets.only(
-              top: 24,
-              bottom: 48,
-              right: 30,
-              left: 30,
-            ),
-            itemBuilder: (_, index) => PlantTile(
-              plant: filteredPlants[index],
-              tileBackground: CustomColors.terciary.withOpacity(.3),
-            ),
-            separatorBuilder: (_, index) => const SizedBox(
-              height: 40,
-              width: 40,
-            ),
-            physics: const BouncingScrollPhysics(),
-            itemCount: filteredPlants.length,
-            scrollDirection: Axis.horizontal,
+    return InkWell(
+      onTap: () {},
+      child: ExpansionTile(
+        title: ListTile(
+          title: SubTitleWidget(
+            text: widget.category.readableName,
+            color: color,
           ),
+          contentPadding: EdgeInsets.zero,
         ),
-      ],
+        tilePadding: const EdgeInsets.symmetric(
+          horizontal: 30,
+        ),
+        enableFeedback: true,
+        backgroundColor: widget.backgroundColor,
+        collapsedBackgroundColor: widget.backgroundColor,
+        iconColor: color,
+        collapsedIconColor: color,
+        textColor: color,
+        collapsedTextColor: color,
+        children: [
+          SizedBox(
+            height: 240,
+            child: ListView.separated(
+              padding: const EdgeInsets.only(
+                top: 24,
+                bottom: 48,
+                right: 30,
+                left: 30,
+              ),
+              itemBuilder: (_, index) => PlantTile(
+                plant: filteredPlants[index],
+                tileBackground: CustomColors.terciary.withOpacity(.3),
+              ),
+              separatorBuilder: (_, index) => const SizedBox(
+                height: 40,
+                width: 40,
+              ),
+              physics: const BouncingScrollPhysics(),
+              itemCount: filteredPlants.length,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kitanda/src/config/theme.dart';
-import 'package:kitanda/src/screens/auth/screens/sign_in_screen.dart';
+import 'package:greenplace/src/config/theme.dart';
+import 'package:greenplace/src/screens/auth/screens/sign_in_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {

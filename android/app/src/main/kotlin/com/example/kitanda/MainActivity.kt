@@ -1,4 +1,4 @@
-package com.example.kitanda
+package com.example.greenplace
 
 import io.flutter.embedding.android.FlutterActivity
 
