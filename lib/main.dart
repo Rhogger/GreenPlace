@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:greenplace/src/config/theme.dart';
-import 'package:greenplace/src/screens/auth/screens/sign_in_screen.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'src/config/theme.dart';
+import 'src/routes/app_pages.dart';
+import 'src/routes/routes.dart';
+import 'src/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Greenplace',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -37,7 +41,9 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const SignInScreen(),
+      home: const SplashScreen(),
+      initialRoute: Routes.splashRoute,
+      getPages: AppPages.pages,
     );
   }
 }

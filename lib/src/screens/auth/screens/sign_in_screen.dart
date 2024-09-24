@@ -1,11 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'sign_up_screen.dart';
 import '../components/textfields/custom_text_field.dart';
-import '../../bases/base_screen.dart';
-import '../../../components/functions/navigate.dart';
+import '../../../routes/routes.dart';
 import '../../../components/styles/buttons.dart';
 import '../../../components/widgets/texts/button_text_widget.dart';
 import '../../../components/widgets/texts/simple_text_widget.dart';
@@ -24,7 +23,7 @@ class SignInScreen extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/sign_in_background.png"),
+              image: AssetImage("assets/images/app/sign_in_background.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -103,10 +102,7 @@ class SignInScreen extends StatelessWidget {
                       SizedBox(
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {
-                            navigatePushReplacement(
-                                context, const BaseScreen());
-                          },
+                          onPressed: () => Get.offNamed(Routes.baseRoute),
                           style: ButtonProps.filledRoundedElevated(),
                           child: const ButtonTextWidget(
                             text: "Entrar",
@@ -156,9 +152,7 @@ class SignInScreen extends StatelessWidget {
                       SizedBox(
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {
-                            navigatePush(context, const SignUpScreen());
-                          },
+                          onPressed: () => Get.toNamed(Routes.signupRoute),
                           style: ButtonProps.outlinedRoundedElevated(),
                           child: ButtonTextWidget(
                             text: "Criar conta",

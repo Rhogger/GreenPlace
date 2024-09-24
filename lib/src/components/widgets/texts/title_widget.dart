@@ -23,6 +23,7 @@ class TitleWidget extends StatelessWidget {
         color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
+        textStyle: Theme.of(context).textTheme.titleLarge,
       ),
     );
   }

@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/sign_in_background.png"),
+            image: AssetImage("assets/images/app/sign_in_background.png"),
             colorFilter:
                 ColorFilter.mode(Colors.lightBlueAccent, BlendMode.softLight),
             fit: BoxFit.cover,
